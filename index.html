@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        //Задание 1:
+
+
+        //let str = prompt("");
+        let strTest = `раз пробел,два пробел,три пробел,/nперенос1/nперенос2`;
+        const ELEM1 = "/n";
+        const ELEM2 = " ";
+
+        function count(x) {
+            let newStr = 0,
+                space = 0,
+                value1 = strTest.indexOf(ELEM1),
+                value2 = strTest.indexOf(ELEM2);
+
+            while (value1 !== -1) {
+                value1 = strTest.indexOf(ELEM1, value1 + 1);
+                newStr++;
+            }
+
+            while (value2 !== -1) {
+                value2 = strTest.indexOf(ELEM2, value2 + 1);
+                space++;
+            }
+            return "Вы ввели стоку: " + strTest + " в ней пробелов = " + space + " и переводов строки = " + newStr;
+        }
+        //alert(count(str));
+        console.log(count(strTest));
+
+
+        //Задание 2:
+
+
+        let txt = ["бессмыслица", "oчки", "потерялa", "жена", "вчера", "пришла", "опять", "ехать"];
+
+        function randomTxt(arr) {
+            let result = [];
+            // for (let i = 0; i < arr.length; i++) {
+            //     randomIndex = Math.floor(Math.random() * arr.length);  //как сделать, чтоб randomIndex не повторялся?
+            //     if (result.indexOf(arr[randomIndex]) < 0)
+            //         result.push(arr[randomIndex]);
+            // }       
+
+            //       когда находит совпадение, то счетчик все-равно ++
+            //       получается массив из меньшего к-ства эл-тов
+            //       найти др спсб!!!
+
+            for (; result.length < arr.length;) {
+                randomIndex = Math.floor(Math.random() * arr.length);
+                if (result.indexOf(arr[randomIndex]) < 0)
+                    result.push(arr[randomIndex]);
+            }
+
+            return result.join(" ");
+        }
+
+        //alert(randomTxt(txt));
+        console.log(randomTxt(txt));
+
+        //Задание 3:
+
+
+        let str = `В мире горы есть и долины есть, 
+        В мире хоры есть и низины есть, 
+        В мире море есть и лавины есть,
+        В мире боги есть и богини есть.
+                                        Цветаева`;
+        let word = "есть";
+
+        function arr(x, y) {
+            let i,
+                result = [];
+            while (i !== -1) {
+                i = str.indexOf(word, i + 1);
+                if (i == -1) break;
+                result.push(i);
+            }
+            return result;
+        }
+
+        console.log(arr(str, word));
+
+
+        //Задание 4*:
+
+        let value = "ax";
+        let nameTask = ['a', 'f', 'j', 'z'];
+
+
+        function sortNameTask(arr, val) {
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i].localeCompare(val) > 0) {
+                    arr.splice(i, 0, val);
+                    return;
+                }
+            }
+            arr.push(val);
+        }
+
+        sortNameTask(nameTask, value);
+        console.log(nameTask);
+
+        // console.log(sortNameTask(nameTask, value));   как вывести таким способом???
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
